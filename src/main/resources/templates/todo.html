@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+
+    <h1>Hello</h1>
+    <p><a href="/api/v1/todo/addTodo"> Add todo here!!!</a> </p>
+
+    <table>
+        <th:block th:each="todo : ${List}">
+            <tr>
+                <td th:text = "${todo.id}"></td>
+                <td th:text = "${todo.name}"></td>
+                <td th:text = "${todo.completed}"></td>
+                <td><a th:href="@{'/api/v1/todo/update/' +  ${todo.id}}" me >Update</a></td>
+                <td><a th:href="@{'/api/v1/todo/delete/' +  ${todo.id}}" me >Delete</a></td>
+
+            </tr>
+        </th:block>
+    </table>
+
+</body>
+</html>

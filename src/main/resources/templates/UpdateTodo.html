@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Update Todo Page</h1>
+    <h2>Enter the details for what you want to update?</h2>
+
+    <form action="#" th:action="@{/api/v1/todo/updateTodo}" method="post" th:object = "${todo}">
+        <input type="hidden" value="${todo.id}" th:field ="*{id}">
+        <p>Name: <input type="text" th:field="*{name}"></p>
+        <p>Completed: <input type="checkbox" th:field="*{completed}"></p>
+
+        <p><input type = "submit" value = "Update!"></p>
+    </form>
+</body>
+</html>
